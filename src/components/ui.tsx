@@ -103,7 +103,7 @@ export function CopyButton({
 
 export function CopyField({ value, mono = true }: { value: string; mono?: boolean }) {
   return (
-    <div className="flex items-center gap-2 rounded-2xl border border-ink/10 bg-white/45 px-4 py-2.5">
+    <div className="flex items-center gap-2 rounded-2xl border border-ink/10 bg-white/45 px-4 dark:bg-white/5 py-2.5">
       <span className={cn('min-w-0 flex-1 break-all', mono && 'mono-val')}>
         {value || <span className="text-inksoft/50">—</span>}
       </span>
@@ -126,7 +126,7 @@ export function Segmented<T extends string>({
   return (
     <div
       className={cn(
-        'inline-flex flex-wrap gap-1 rounded-full border border-white/60 bg-white/45 p-1 backdrop-blur-md',
+        'inline-flex flex-wrap gap-1 rounded-full border border-white/60 bg-white/45 p-1 backdrop-blur-md dark:border-white/10 dark:bg-white/5',
         className,
       )}
     >
@@ -157,7 +157,7 @@ export function Stat({
   mono?: boolean
 }) {
   return (
-    <div className="rounded-2xl border border-ink/10 bg-white/45 px-4 py-3">
+    <div className="rounded-2xl border border-ink/10 bg-white/45 px-4 dark:bg-white/5 py-3">
       <div className="text-[10px] font-semibold tracking-[0.16em] text-inksoft uppercase">
         {label}
       </div>
@@ -197,7 +197,7 @@ export function FileDrop({
       }}
       className={cn(
         'flex cursor-pointer flex-col items-center justify-center gap-2 rounded-3xl border-2 border-dashed px-6 py-10 text-center transition',
-        over ? 'border-rust bg-rust/5' : 'border-ink/20 bg-white/35 hover:border-ink/40',
+        over ? 'border-rust bg-rust/5' : 'border-ink/20 bg-white/35 hover:border-ink/40 dark:bg-white/5',
         className,
       )}
     >

@@ -1,6 +1,10 @@
 @import 'tailwindcss';
 @import './fonts/fonts.css';
 
+/* เปิดใช้ variant `dark:` แบบสลับผ่านคลาส .dark บน <html> (แทน prefers-color-scheme ตรง ๆ)
+   เพื่อให้ผู้ใช้กดสลับเองได้ + ยังตามระบบอัตโนมัติเมื่อยังไม่เคยเลือก */
+@custom-variant dark (&:where(.dark, .dark *));
+
 @theme {
   --color-paper: #f4edde;
   --color-paper2: #eae0ca;
@@ -17,8 +21,25 @@
   --font-mono: 'IBM Plex Mono', ui-monospace, SFMono-Regular, monospace;
 }
 
+/* ---- dark theme (โหมดมืด) ----
+   สลับค่าทุกโทเคนใต้ .dark — ทุกคลาสที่ใช้สีจาก @theme (bg-paper, text-ink, ...)
+   จะพลิกตามอัตโนมัติทั้งเว็บ ไม่ต้องแก้ทีละหน้า */
+.dark {
+  --color-paper: #16100a;
+  --color-paper2: #221a10;
+  --color-crema: #2a2015;
+  --color-ink: #efe4cd;
+  --color-inksoft: #a5927a;
+  --color-rust: #e57a52;
+  --color-rustdeep: #c4613a;
+  --color-olive: #a4b57f;
+  --color-gold: #d8b271;
+  color-scheme: dark;
+}
+
 html {
   scroll-behavior: smooth;
+  color-scheme: light;
 }
 
 body {
@@ -36,7 +57,7 @@ body {
   }
 
   .card {
-    @apply rounded-3xl border border-white/70 bg-crema/45 shadow-[inset_0_1px_0_rgba(255,255,255,0.65),0_20px_50px_-30px_rgba(34,27,18,0.5)] backdrop-blur-xl backdrop-saturate-150;
+    @apply rounded-3xl border border-white/70 bg-crema/45 shadow-[inset_0_1px_0_rgba(255,255,255,0.65),0_20px_50px_-30px_rgba(34,27,18,0.5)] backdrop-blur-xl backdrop-saturate-150 dark:border-white/10 dark:shadow-[inset_0_1px_0_rgba(255,255,255,0.06),0_24px_60px_-32px_rgba(0,0,0,0.9)];
   }
 
   .btn {
@@ -56,15 +77,15 @@ body {
   }
 
   .input {
-    @apply w-full rounded-2xl border border-ink/15 bg-white/55 px-4 py-2.5 text-sm outline-none backdrop-blur-md transition placeholder:text-inksoft/60 focus:border-ink focus:bg-white/75 focus:ring-2 focus:ring-rust/25;
+    @apply w-full rounded-2xl border border-ink/15 bg-white/55 px-4 py-2.5 text-sm outline-none backdrop-blur-md transition placeholder:text-inksoft/60 focus:border-ink focus:bg-white/75 focus:ring-2 focus:ring-rust/25 dark:bg-white/5 dark:focus:bg-white/10;
   }
 
   .textarea {
-    @apply min-h-40 w-full resize-y rounded-2xl border border-ink/15 bg-white/55 px-4 py-3 font-mono text-[13px] leading-relaxed outline-none backdrop-blur-md transition placeholder:text-inksoft/60 focus:border-ink focus:bg-white/75 focus:ring-2 focus:ring-rust/25;
+    @apply min-h-40 w-full resize-y rounded-2xl border border-ink/15 bg-white/55 px-4 py-3 font-mono text-[13px] leading-relaxed outline-none backdrop-blur-md transition placeholder:text-inksoft/60 focus:border-ink focus:bg-white/75 focus:ring-2 focus:ring-rust/25 dark:bg-white/5 dark:focus:bg-white/10;
   }
 
   .select {
-    @apply w-full cursor-pointer appearance-none rounded-2xl border border-ink/15 bg-white/55 px-4 py-2.5 pr-9 text-sm outline-none backdrop-blur-md transition focus:border-ink focus:bg-white/75 focus:ring-2 focus:ring-rust/25;
+    @apply w-full cursor-pointer appearance-none rounded-2xl border border-ink/15 bg-white/55 px-4 py-2.5 pr-9 text-sm outline-none backdrop-blur-md transition focus:border-ink focus:bg-white/75 focus:ring-2 focus:ring-rust/25 dark:bg-white/5 dark:focus:bg-white/10;
   }
 
   .label {
@@ -76,7 +97,7 @@ body {
   }
 
   .chip {
-    @apply inline-flex items-center gap-1.5 rounded-full border border-white/60 bg-white/40 px-3 py-1 text-xs font-medium text-inksoft backdrop-blur-md;
+    @apply inline-flex items-center gap-1.5 rounded-full border border-white/60 bg-white/40 px-3 py-1 text-xs font-medium text-inksoft backdrop-blur-md dark:border-white/10 dark:bg-white/5;
   }
 
   .mono-val {
@@ -155,6 +176,15 @@ body {
     linear-gradient(180deg, #f8ecdb 0%, #f3e6cf 48%, #e9e0c6 100%);
 }
 
+.dark .bg-base {
+  background:
+    radial-gradient(90% 70% at 85% -5%, rgba(229, 122, 82, 0.14), transparent 60%),
+    radial-gradient(80% 60% at -5% 15%, rgba(196, 97, 58, 0.12), transparent 55%),
+    radial-gradient(90% 70% at 20% 115%, rgba(164, 181, 127, 0.1), transparent 60%),
+    radial-gradient(70% 55% at 60% 60%, rgba(216, 178, 113, 0.12), transparent 65%),
+    linear-gradient(180deg, #1d150e 0%, #16100a 48%, #100b06 100%);
+}
+
 .bg-blob {
   position: absolute;
   inset: 0;
@@ -179,6 +209,23 @@ body {
 .blob-cream {
   background: radial-gradient(closest-side, rgba(255, 252, 244, 0.9), rgba(255, 252, 244, 0));
   animation: drift-b 28s ease-in-out infinite alternate-reverse;
+}
+
+/* โหมดมืด: ลดความสว่าง blob ทั้งชุดให้เป็นเงาไอรุ่น ๆ บนพื้นเอสเปรสโซ่ */
+.dark .blob-rust {
+  background: radial-gradient(closest-side, rgba(229, 122, 82, 0.2), rgba(229, 122, 82, 0));
+}
+
+.dark .blob-gold {
+  background: radial-gradient(closest-side, rgba(216, 178, 113, 0.16), rgba(216, 178, 113, 0));
+}
+
+.dark .blob-olive {
+  background: radial-gradient(closest-side, rgba(164, 181, 127, 0.13), rgba(164, 181, 127, 0));
+}
+
+.dark .blob-cream {
+  background: radial-gradient(closest-side, rgba(240, 228, 205, 0.07), rgba(240, 228, 205, 0));
 }
 
 @keyframes drift-a {
@@ -212,6 +259,46 @@ body {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   background-size: 180px 180px;
   opacity: 0.05;
+}
+
+/* โหมดมืด: สลับ noise เป็นเม็ดสว่างจาง ๆ (ตัวเดิมเป็นเม็ดดำ จะมองไม่เห็น) */
+.dark .bg-noise {
+  filter: invert(1);
+  opacity: 0.04;
+}
+
+/* ซีนศิลป์ใน Background ใช้สีแบบ attribute — เขียนทับด้วย selector ได้ตรง ๆ
+   (โหมดมืด: ดำ → ครีม / สีอุ่นเพิ่มความสว่างให้เด่นบนพื้นเข้ม) */
+.dark [stroke='#221b12'] {
+  stroke: #efe4cd;
+}
+
+.dark [fill='#221b12'] {
+  fill: #efe4cd;
+}
+
+.dark [stroke='#c89b54'] {
+  stroke: #d8b271;
+}
+
+.dark [stroke='#c24e2a'] {
+  stroke: #e57a52;
+}
+
+.dark [stroke='#8f3719'] {
+  stroke: #c4613a;
+}
+
+.dark [fill='#c89b54'] {
+  fill: #d8b271;
+}
+
+.dark [fill='#c24e2a'] {
+  fill: #e57a52;
+}
+
+.dark [fill='#65724b'] {
+  fill: #a4b57f;
 }
 
 /* ---- reduced motion ---- */

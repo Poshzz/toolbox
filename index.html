@@ -9,9 +9,25 @@
     <meta name="apple-mobile-web-app-title" content="Toolbox" />
     <meta
       name="description"
-      content="Toolbox — กล่องเครื่องมือออนไลน์ 26 รายการ: นับคำ แปลงหน่วย สร้าง QR เข้ารหัส คำนวณเงิน ย่อรูป ทำงานในเบราว์เซอร์ทั้งหมด"
+      content="Toolbox — กล่องเครื่องมือออนไลน์ 42 รายการ: ข้อความ ไฟล์ รูปภาพ PDF ไทย เดฟ การเงิน — ทำงานในเบราว์เซอร์ 100% และใช้แบบออฟไลน์ได้"
     />
     <title>Toolbox — กล่องเครื่องมือออนไลน์</title>
+    <script>
+      // ตั้งธีมก่อน paint แรก (กันจอวาบสว่างผิด) — ค่าที่เคยเลือก > ค่าตามระบบ
+      ;(function () {
+        var t = null
+        try {
+          var s = localStorage.getItem('toolbox-theme')
+          if (s === 'dark' || s === 'light') t = s
+        } catch (e) {}
+        if (!t) t = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+        if (t === 'dark') {
+          document.documentElement.classList.add('dark')
+          var m = document.querySelector('meta[name="theme-color"]')
+          if (m) m.setAttribute('content', '#16100a')
+        }
+      })()
+    </script>
   </head>
   <body>
     <div id="root"></div>

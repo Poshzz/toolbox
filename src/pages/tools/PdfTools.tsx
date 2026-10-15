@@ -26,7 +26,7 @@ function MultiFileDrop({ onFiles }: { onFiles: (files: File[]) => void }) {
       }}
       className={cn(
         'flex cursor-pointer flex-col items-center justify-center gap-2 rounded-3xl border-2 border-dashed px-6 py-10 text-center transition',
-        over ? 'border-rust bg-rust/5' : 'border-ink/20 bg-white/35 hover:border-ink/40',
+        over ? 'border-rust bg-rust/5' : 'border-ink/20 bg-white/35 hover:border-ink/40 dark:bg-white/5',
       )}
     >
       <Upload className="h-6 w-6 text-inksoft" />
@@ -184,7 +184,7 @@ export default function PdfTools() {
                 {files.map((f, i) => (
                   <li
                     key={`${f.name}-${f.size}-${i}`}
-                    className="flex items-center gap-2 rounded-2xl border border-ink/10 bg-white/45 px-3 py-2.5 sm:gap-3 sm:px-4"
+                    className="flex items-center gap-2 rounded-2xl border border-ink/10 bg-white/45 dark:bg-white/5 px-3 py-2.5 sm:gap-3 sm:px-4"
                   >
                     <span className="w-5 shrink-0 text-center font-mono text-xs text-inksoft">
                       {i + 1}

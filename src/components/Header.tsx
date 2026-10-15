@@ -1,10 +1,11 @@
 import { Link } from 'react-router-dom'
 import { Github, Search } from 'lucide-react'
 import { SITE } from '../data/site'
+import ThemeToggle from './ThemeToggle'
 
 export default function Header() {
   return (
-    <header className="sticky top-0 z-40 border-b border-white/55 bg-paper/55 backdrop-blur-2xl">
+    <header className="sticky top-0 z-40 border-b border-white/55 bg-paper/55 backdrop-blur-2xl dark:border-white/10">
       <div className="wrap flex h-16 items-center justify-between gap-4">
         <Link to="/" className="flex items-baseline gap-2.5">
           <span className="font-display text-2xl font-semibold tracking-tight">
@@ -24,6 +25,7 @@ export default function Header() {
               Ctrl K
             </kbd>
           </button>
+          <ThemeToggle />
           <a href={SITE.repo} target="_blank" rel="noreferrer" className="btn btn-primary gap-2">
             <Github className="h-4 w-4" />
             <span className="hidden sm:inline">GitHub</span>

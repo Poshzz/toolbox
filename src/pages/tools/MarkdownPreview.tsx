@@ -56,11 +56,11 @@ export default function MarkdownPreview() {
           </div>
           {text.trim() ? (
             <div
-              className="mt-1.5 min-h-96 overflow-x-auto rounded-2xl border border-ink/10 bg-white/45 px-4 py-3 text-sm text-ink"
+              className="mt-1.5 min-h-96 overflow-x-auto rounded-2xl border border-ink/10 bg-white/45 dark:bg-white/5 px-4 py-3 text-sm text-ink"
               dangerouslySetInnerHTML={{ __html: html }}
             />
           ) : (
-            <div className="mt-1.5 flex min-h-96 items-center justify-center rounded-2xl border border-dashed border-ink/15 bg-white/25 px-4 py-3 text-center text-sm text-inksoft">
+            <div className="mt-1.5 flex min-h-96 items-center justify-center rounded-2xl border border-dashed border-ink/15 bg-white/25 dark:bg-white/[0.04] px-4 py-3 text-center text-sm text-inksoft">
               เริ่มพิมพ์ Markdown ด้านซ้าย แล้วผลลัพธ์จะขึ้นตรงนี้ทันที
             </div>
           )}

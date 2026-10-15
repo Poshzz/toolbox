@@ -87,7 +87,7 @@ export default function CronParser() {
         </div>
 
         {!expr.trim() && (
-          <p className="rounded-2xl border border-ink/10 bg-white/45 px-4 py-3 text-sm text-inksoft">
+          <p className="rounded-2xl border border-ink/10 bg-white/45 dark:bg-white/5 px-4 py-3 text-sm text-inksoft">
             รูปแบบคือ <span className="font-mono">นาที ชั่วโมง วันของเดือน เดือน วันในสัปดาห์</span> — ลำดับสำคัญที่สุด
             เช่น <span className="font-mono">30 4 * * *</span> คือตี 4 ครึ่ง (นาที 30 ของชั่วโมง 4) ส่วน{' '}
             <span className="font-mono">4 30 * * *</span> จะ error เพราะชั่วโมง 30 เกินช่วง 0–23
@@ -102,14 +102,14 @@ export default function CronParser() {
 
         {result.ok && (
           <>
-            <div className="rounded-2xl border border-ink/10 bg-white/45 px-4 py-3.5">
+            <div className="rounded-2xl border border-ink/10 bg-white/45 dark:bg-white/5 px-4 py-3.5">
               <div className="text-[10px] font-semibold tracking-[0.16em] text-inksoft uppercase">ความหมาย</div>
               <p className="mt-1.5 font-display text-2xl leading-snug">{result.description}</p>
             </div>
             {fields && (
               <div className="grid grid-cols-2 gap-2 sm:grid-cols-5">
                 {fields.map((f, i) => (
-                  <div key={i} className="rounded-2xl border border-ink/10 bg-white/45 px-3 py-2">
+                  <div key={i} className="rounded-2xl border border-ink/10 bg-white/45 dark:bg-white/5 px-3 py-2">
                     <div className="text-[10px] font-semibold tracking-[0.14em] text-inksoft uppercase">
                       {FIELD_LABELS[i]}
                     </div>

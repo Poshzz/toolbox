@@ -124,7 +124,7 @@ export default function HtmlEntity() {
           แสดง {filtered.length} จาก {NAMED_ENTITIES.length} รายการ
         </p>
         {filtered.length === 0 ? (
-          <p className="mt-4 rounded-2xl border border-ink/10 bg-white/45 px-4 py-3 text-sm text-inksoft">
+          <p className="mt-4 rounded-2xl border border-ink/10 bg-white/45 dark:bg-white/5 px-4 py-3 text-sm text-inksoft">
             ไม่พบ entity ที่ตรงกับ “{filter}” — ลองพิมพ์ชื่อภาษาอังกฤษ เช่น copy, hellip หรือวางตัวอักษรโดยตรง
           </p>
         ) : (
