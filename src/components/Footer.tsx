@@ -41,8 +41,8 @@ export default function Footer() {
             © {SITE.year} {SITE.name} — ฟรีสำหรับทุกการใช้งาน
           </p>
           <p>
-            สไตล์ได้แรงบันดาลใจจาก “Coffee Cycle” โดย Delta Cafés (Bürocratik) · Built with Vite + React +
-            Tailwind
+            สไตล์ได้แรงบันดาลใจจาก “Coffee Cycle” โดย Delta Cafés (Bürocratik) — โปรเจกต์ส่วนตัว
+            ไม่มีความเกี่ยวข้องกับทั้งสองบริษัท · Built with Vite + React + Tailwind
           </p>
         </div>
       </div>
