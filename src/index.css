@@ -1,0 +1,141 @@
+@import 'tailwindcss';
+
+@theme {
+  --color-paper: #f4edde;
+  --color-paper2: #eae0ca;
+  --color-crema: #fbf8f0;
+  --color-ink: #221b12;
+  --color-inksoft: #6e6250;
+  --color-rust: #c24e2a;
+  --color-rustdeep: #8f3719;
+  --color-olive: #65724b;
+  --color-gold: #c89b54;
+
+  --font-display: 'Fraunces', 'Noto Serif Thai', Georgia, serif;
+  --font-sans: 'IBM Plex Sans Thai', system-ui, -apple-system, sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, SFMono-Regular, monospace;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-paper font-sans text-ink antialiased;
+}
+
+::selection {
+  background: var(--color-rust);
+  color: var(--color-crema);
+}
+
+@layer components {
+  .wrap {
+    @apply mx-auto w-full max-w-6xl px-5 sm:px-8;
+  }
+
+  .card {
+    @apply rounded-3xl border border-ink/10 bg-crema;
+  }
+
+  .btn {
+    @apply inline-flex cursor-pointer select-none items-center justify-center gap-2 rounded-full border border-ink/15 px-4 py-2 text-sm font-medium transition-all duration-200 hover:-translate-y-px active:translate-y-0 disabled:pointer-events-none disabled:opacity-40;
+  }
+
+  .btn-primary {
+    @apply border-ink bg-ink text-paper hover:border-rust hover:bg-rust;
+  }
+
+  .btn-rust {
+    @apply border-rust bg-rust text-crema hover:border-rustdeep hover:bg-rustdeep;
+  }
+
+  .btn-ghost {
+    @apply bg-transparent hover:bg-ink/5;
+  }
+
+  .input {
+    @apply w-full rounded-2xl border border-ink/15 bg-crema px-4 py-2.5 text-sm outline-none transition placeholder:text-inksoft/60 focus:border-ink focus:ring-2 focus:ring-rust/25;
+  }
+
+  .textarea {
+    @apply min-h-40 w-full resize-y rounded-2xl border border-ink/15 bg-crema px-4 py-3 font-mono text-[13px] leading-relaxed outline-none transition placeholder:text-inksoft/60 focus:border-ink focus:ring-2 focus:ring-rust/25;
+  }
+
+  .select {
+    @apply w-full cursor-pointer appearance-none rounded-2xl border border-ink/15 bg-crema px-4 py-2.5 pr-9 text-sm outline-none transition focus:border-ink focus:ring-2 focus:ring-rust/25;
+  }
+
+  .label {
+    @apply mb-1.5 block text-[11px] font-semibold tracking-[0.14em] text-inksoft uppercase;
+  }
+
+  .overline {
+    @apply text-[11px] font-semibold tracking-[0.22em] text-rust uppercase;
+  }
+
+  .chip {
+    @apply inline-flex items-center gap-1.5 rounded-full border border-ink/10 bg-paper2/60 px-3 py-1 text-xs font-medium text-inksoft;
+  }
+
+  .mono-val {
+    @apply font-mono text-[13px] break-all;
+  }
+}
+
+/* ---- reveal on scroll ---- */
+.reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition:
+    opacity 0.8s cubic-bezier(0.2, 0.65, 0.25, 1),
+    transform 0.8s cubic-bezier(0.2, 0.65, 0.25, 1);
+}
+.reveal.is-in {
+  opacity: 1;
+  transform: none;
+}
+
+/* ---- marquee ---- */
+.marquee {
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+}
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 40s linear infinite;
+}
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* ---- entrance ---- */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(26px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.animate-fade-up {
+  animation: fadeUp 0.9s cubic-bezier(0.2, 0.65, 0.25, 1) both;
+}
+
+@keyframes spinSlow {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.spin-slow {
+  animation: spinSlow 26s linear infinite;
+}
