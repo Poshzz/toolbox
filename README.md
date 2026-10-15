@@ -14,6 +14,7 @@
 ![Vite](https://img.shields.io/badge/Vite-6-646cff?style=flat-square&logo=vite&logoColor=white)
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-v4-38bdf8?style=flat-square&logo=tailwindcss&logoColor=white)
 ![Privacy](https://img.shields.io/badge/privacy-100%25_client--side-65724b?style=flat-square)
+![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)
 
 <br/>
 
@@ -170,8 +171,13 @@ npm run preview    # ลองของจริงจาก dist/
 
 - แรงบันดาลใจดีไซน์: **"Coffee Cycle"** โดย **Delta Cafés** (ออกแบบโดย Bürocratik) — โปรเจกต์นี้เป็นงานส่วนตัว ไม่มีความเกี่ยวข้องหรือได้รับการรับรองจากทั้งสองบริษัท
 - ไอคอน: [lucide-react](https://lucide.dev) · QR Code: [qrcode](https://www.npmjs.com/package/qrcode)
-- เว็บนี้**ฟรีสำหรับทุกการใช้งาน** — โค้ดเผยแพร่เพื่อการเรียนรู้ หากอยากนำไปใช้ต่อ ทักทายเจ้าของ repo ได้เลยครับ
-- **© 2026 Poshzz**
+- เว็บนี้**ฟรีสำหรับทุกการใช้งาน** และโค้ดเปิดให้ใช้ภายใต้สัญญาอนุญาต [MIT](#-license) — เอาไปใช้ต่อได้เลย
+
+## 📄 License
+
+โค้ดในโปรเจกต์นี้ใช้สัญญาอนุญาต **MIT** — ใช้ แก้ไข ดัดแปลง และแจกจ่ายต่อได้อย่างอิสระ (รวมถึงเชิงพาณิชย์) โดยต้องเก็บไฟล์ [LICENSE](LICENSE) และข้อความลิขสิทธิ์ไว้
+
+**© 2026 Poshzz**
 
 ---
 
