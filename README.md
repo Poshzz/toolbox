@@ -107,6 +107,7 @@
 | **Styling** | Tailwind CSS v4 + ธีมกาแฟที่ออกแบบเอง (glass + parallax engine เขียนสด) |
 | **Routing** | react-router-dom v7 — HashRouter ใช้ได้ทุก subpath ของ GitHub Pages |
 | **Libraries** | qrcode · lucide-react · Web Crypto API · Canvas API |
+| **Fonts** | Self-hosted ทั้งหมด — Fraunces · IBM Plex · Noto Serif Thai (SIL OFL) ไม่มี request ไป Google |
 | **Backend** | ไม่มี. ศูนย์. Zero. 🎉 |
 | **Deploy** | GitHub Actions → GitHub Pages (อัตโนมัติทุก push ขึ้น `main`) |
 
@@ -163,7 +164,7 @@ npm run preview    # ลองของจริงจาก dist/
 > **ข้อมูลของคุณอยู่ในเบราว์เซอร์เสมอ** — ทุกเครื่องมือคำนวณฝั่ง client ล้วน ๆ
 > ไม่มีการอัปโหลด ไม่มี cookie ไม่มี analytics และไม่มี backend ให้ข้อมูลไหลไปถึง
 
-อยากพิสูจน์? เปิด **DevTools → Network** แล้วลองใช้เครื่องมือต่าง ๆ — จะไม่เห็น request ที่ส่งข้อมูลของคุณออกไปเลย
+อยากพิสูจน์? เปิด **DevTools → Network** แล้วลองใช้เครื่องมือต่าง ๆ — จะไม่เห็น request ที่ส่งข้อมูลของคุณออกไปเลย และตัวเว็บเองก็ไม่เรียกไฟล์จากภายนอกแม้แต่ชิ้นเดียว (ฟอนต์ self-host ทั้งหมด)
 
 ## 🙏 เครดิต
 
