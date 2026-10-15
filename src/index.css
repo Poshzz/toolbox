@@ -35,7 +35,7 @@ body {
   }
 
   .card {
-    @apply rounded-3xl border border-ink/10 bg-crema;
+    @apply rounded-3xl border border-white/60 bg-crema/55 shadow-[0_18px_50px_-32px_rgba(34,27,18,0.5)] backdrop-blur-xl backdrop-saturate-150;
   }
 
   .btn {
@@ -47,7 +47,7 @@ body {
   }
 
   .btn-rust {
-    @apply border-rust bg-rust text-crema hover:border-rustdeep hover:bg-rustdeep;
+    @apply border-rust bg-rust text-crema shadow-[0_12px_30px_-14px_rgba(194,78,42,0.7)] hover:border-rustdeep hover:bg-rustdeep;
   }
 
   .btn-ghost {
@@ -55,15 +55,15 @@ body {
   }
 
   .input {
-    @apply w-full rounded-2xl border border-ink/15 bg-crema px-4 py-2.5 text-sm outline-none transition placeholder:text-inksoft/60 focus:border-ink focus:ring-2 focus:ring-rust/25;
+    @apply w-full rounded-2xl border border-ink/15 bg-white/55 px-4 py-2.5 text-sm outline-none backdrop-blur-md transition placeholder:text-inksoft/60 focus:border-ink focus:bg-white/75 focus:ring-2 focus:ring-rust/25;
   }
 
   .textarea {
-    @apply min-h-40 w-full resize-y rounded-2xl border border-ink/15 bg-crema px-4 py-3 font-mono text-[13px] leading-relaxed outline-none transition placeholder:text-inksoft/60 focus:border-ink focus:ring-2 focus:ring-rust/25;
+    @apply min-h-40 w-full resize-y rounded-2xl border border-ink/15 bg-white/55 px-4 py-3 font-mono text-[13px] leading-relaxed outline-none backdrop-blur-md transition placeholder:text-inksoft/60 focus:border-ink focus:bg-white/75 focus:ring-2 focus:ring-rust/25;
   }
 
   .select {
-    @apply w-full cursor-pointer appearance-none rounded-2xl border border-ink/15 bg-crema px-4 py-2.5 pr-9 text-sm outline-none transition focus:border-ink focus:ring-2 focus:ring-rust/25;
+    @apply w-full cursor-pointer appearance-none rounded-2xl border border-ink/15 bg-white/55 px-4 py-2.5 pr-9 text-sm outline-none backdrop-blur-md transition focus:border-ink focus:bg-white/75 focus:ring-2 focus:ring-rust/25;
   }
 
   .label {
@@ -75,7 +75,7 @@ body {
   }
 
   .chip {
-    @apply inline-flex items-center gap-1.5 rounded-full border border-ink/10 bg-paper2/60 px-3 py-1 text-xs font-medium text-inksoft;
+    @apply inline-flex items-center gap-1.5 rounded-full border border-white/60 bg-white/40 px-3 py-1 text-xs font-medium text-inksoft backdrop-blur-md;
   }
 
   .mono-val {
@@ -138,4 +138,91 @@ body {
 }
 .spin-slow {
   animation: spinSlow 26s linear infinite;
+}
+
+/* ---- animated background ---- */
+[data-speed] {
+  will-change: transform;
+}
+
+.bg-base {
+  background:
+    radial-gradient(120% 90% at 88% -10%, rgba(200, 155, 84, 0.22), transparent 60%),
+    radial-gradient(110% 80% at -10% 110%, rgba(101, 114, 75, 0.14), transparent 55%),
+    linear-gradient(180deg, #f8f2e5 0%, #f4edde 45%, #eee2cb 100%);
+}
+
+.bg-blob {
+  position: absolute;
+  inset: 0;
+  border-radius: 9999px;
+}
+
+.blob-rust {
+  background: radial-gradient(closest-side, rgba(194, 78, 42, 0.2), rgba(194, 78, 42, 0));
+  animation: drift-a 26s ease-in-out infinite alternate;
+}
+
+.blob-gold {
+  background: radial-gradient(closest-side, rgba(200, 155, 84, 0.28), rgba(200, 155, 84, 0));
+  animation: drift-b 34s ease-in-out infinite alternate;
+}
+
+.blob-olive {
+  background: radial-gradient(closest-side, rgba(101, 114, 75, 0.18), rgba(101, 114, 75, 0));
+  animation: drift-c 40s ease-in-out infinite alternate;
+}
+
+.blob-cream {
+  background: radial-gradient(closest-side, rgba(255, 252, 244, 0.85), rgba(255, 252, 244, 0));
+  animation: drift-b 30s ease-in-out infinite alternate-reverse;
+}
+
+@keyframes drift-a {
+  from {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  to {
+    transform: translate3d(5%, -6%, 0) scale(1.14);
+  }
+}
+
+@keyframes drift-b {
+  from {
+    transform: translate3d(0, 0, 0) scale(1.06);
+  }
+  to {
+    transform: translate3d(-6%, 5%, 0) scale(0.94);
+  }
+}
+
+@keyframes drift-c {
+  from {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  to {
+    transform: translate3d(7%, 4%, 0) scale(1.12);
+  }
+}
+
+.bg-noise {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 180px 180px;
+  opacity: 0.05;
+}
+
+/* ---- reduced motion ---- */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .bg-blob,
+  .marquee-track,
+  .spin-slow,
+  .animate-fade-up {
+    animation: none !important;
+  }
+  [data-speed] {
+    transform: none !important;
+  }
 }

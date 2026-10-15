@@ -41,7 +41,7 @@ export default function LoanCalc() {
       {result ? (
         <>
           <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-            <div className="card bg-ink p-5 text-paper">
+            <div className="card bg-ink/90 p-5 text-paper">
               <div className="text-[10px] font-semibold tracking-[0.16em] uppercase opacity-70">
                 ค่างวดต่อเดือน
               </div>

@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react'
 import { Route, Routes, useLocation } from 'react-router-dom'
+import Background from './components/Background'
 import Header from './components/Header'
 import Footer from './components/Footer'
 import SearchDialog from './components/SearchDialog'
@@ -41,6 +42,7 @@ export default function App() {
 
   return (
     <div className="flex min-h-screen flex-col">
+      <Background />
       <ScrollProgress />
       <Header />
       <main className="flex-1">

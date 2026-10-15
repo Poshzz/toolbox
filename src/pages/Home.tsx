@@ -97,7 +97,7 @@ export default function Home() {
 
             {/* rotating stamp */}
             <div className="absolute -top-5 -right-5 hidden h-28 w-28 sm:block">
-              <div className="spin-slow relative h-full w-full rounded-full border border-ink/15 bg-paper2/90">
+              <div className="spin-slow relative h-full w-full rounded-full border border-white/60 bg-paper2/70 backdrop-blur-md">
                 <svg viewBox="0 0 100 100" className="absolute inset-0 h-full w-full">
                   <defs>
                     <path
@@ -234,7 +234,7 @@ export default function Home() {
       {/* ---------- CTA ---------- */}
       <section className="wrap pb-20">
         <Reveal>
-          <div className="card overflow-hidden bg-ink p-8 text-paper md:p-12">
+          <div className="card overflow-hidden bg-ink/90 p-8 text-paper md:p-12">
             <p className="overline text-gold">Missing something?</p>
             <h2 className="mt-3 max-w-2xl font-display text-3xl tracking-tight md:text-4xl">
               อยากได้เครื่องมืออะไรเพิ่ม บอกได้เลย

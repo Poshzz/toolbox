@@ -4,7 +4,7 @@ import { SITE } from '../data/site'
 
 export default function Header() {
   return (
-    <header className="sticky top-0 z-40 border-b border-ink/10 bg-paper/85 backdrop-blur-md">
+    <header className="sticky top-0 z-40 border-b border-white/55 bg-paper/55 backdrop-blur-2xl">
       <div className="wrap flex h-16 items-center justify-between gap-4">
         <Link to="/" className="flex items-baseline gap-2.5">
           <span className="font-display text-2xl font-semibold tracking-tight">
@@ -20,7 +20,7 @@ export default function Header() {
           >
             <Search className="h-4 w-4" />
             <span className="hidden sm:inline">ค้นหาเครื่องมือ</span>
-            <kbd className="hidden rounded-md border border-ink/15 bg-paper2 px-1.5 py-0.5 font-mono text-[10px] md:inline">
+            <kbd className="hidden rounded-md border border-ink/15 bg-paper2/60 px-1.5 py-0.5 font-mono text-[10px] md:inline">
               Ctrl K
             </kbd>
           </button>
