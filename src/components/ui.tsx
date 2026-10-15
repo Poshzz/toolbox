@@ -41,8 +41,8 @@ export function Input(props: ComponentProps<'input'>) {
   return <input {...props} className={cn('input', props.className)} />
 }
 
-export function Textarea(props: ComponentProps<'textarea'>) {
-  return <textarea {...props} className={cn('textarea', props.className)} />
+export function Textarea({ spellCheck = false, ...props }: ComponentProps<'textarea'>) {
+  return <textarea spellCheck={spellCheck} {...props} className={cn('textarea', props.className)} />
 }
 
 export function Select({ children, ...props }: ComponentProps<'select'>) {
