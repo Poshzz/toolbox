@@ -34,6 +34,7 @@
 | 🔐 **Private by default** | ทุกการคำนวณรันในเบราว์เซอร์ — ข้อมูลของคุณไม่เคยออกจากเครื่อง (zero upload) |
 | ⚡ **Instant** | Static site ล้วน ไม่ต้องสมัคร ไม่ต้องล็อกอิน ไม่ต้องรอโหลด |
 | 🎨 **Editorial design** | ธีมกาแฟ · พื้นหลังงานศิลป์เคลื่อนไหว + parallax + การ์ดกระจกฝ้า |
+| 🌗 **Light / Dark** | สลับธีมได้ทุกหน้า — ตามระบบอัตโนมัติเมื่อยังไม่เลือก · จำค่าที่เลือกไว้ในเครื่อง |
 | ⌨️ **Keyboard-first** | กด `Ctrl` + `K` ค้นหาเครื่องมือได้จากทุกหน้า |
 | 🇹🇭 **ไทย–อังกฤษ** | UI สองภาษา ทั้งชื่อเครื่องมือและคำอธิบาย |
 | 🧩 **One-file tools** | เพิ่มเครื่องมือใหม่ = 1 ไฟล์ + 1 entry — ที่เหลืออัปเดตอัตโนมัติ |
@@ -121,12 +122,16 @@
 |:--:|:--:|
 | <img src=".github/assets/chapters.png" alt="หน้ารวมบทและเครื่องมือ" width="100%" /> | <img src=".github/assets/tool-page.png" alt="หน้า Thai Date & Era" width="100%" /> |
 
+| โหมดมืด — Dark mode | หน้าเครื่องมือโหมดมืด — Tool page (dark) |
+|:--:|:--:|
+| <img src=".github/assets/hero-dark.png" alt="Toolbox โหมดมืด" width="100%" /> | <img src=".github/assets/tool-page-dark.png" alt="หน้า Thai Date & Era โหมดมืด" width="100%" /> |
+
 ## ⚙️ Tech Stack
 
 | Layer | Stack |
 |:--|:--|
 | **Core** | React 19 · TypeScript 5.7 · Vite 6 |
-| **Styling** | Tailwind CSS v4 + ธีมกาแฟที่ออกแบบเอง (glass + parallax engine เขียนสด) |
+| **Styling** | Tailwind CSS v4 + ธีมกาแฟออกแบบเอง · light/dark สลับด้วย CSS variables ทั้งเว็บ (glass + parallax engine เขียนสด) |
 | **Routing** | react-router-dom v7 — HashRouter ใช้ได้ทุก subpath ของ GitHub Pages |
 | **Libraries** | qrcode · pdf-lib · lucide-react · Web Crypto API · Canvas API |
 | **Fonts** | Self-hosted ทั้งหมด — Fraunces · IBM Plex · Noto Serif Thai (SIL OFL) ไม่มี request ไป Google |
@@ -143,7 +148,7 @@ src/
 ├── data/
 │   ├── tools.ts        # registry: CHAPTERS + TOOLS (จุดเดียวที่ต้องแก้เวลาเพิ่มเครื่องมือ)
 │   └── site.ts         # ชื่อเว็บ + repo URL
-├── lib/                # ตรรกะแยกไฟล์ 18 ไฟล์ — md5 · diff · thai-date · thai-numbers · vat · minimd · ico · pdf · cron · …
+├── lib/                # ตรรกะแยกไฟล์ 20 ไฟล์ — md5 · diff · thai-date · thai-numbers · vat · theme · minimd · ico · pdf · cron · …
 └── pages/
     ├── Home.tsx
     └── tools/          # 1 ไฟล์ต่อ 1 เครื่องมือ — 42 ไฟล์ (lazy-load ทั้งหมด)
@@ -188,6 +193,8 @@ npm run preview    # ลองของจริงจาก dist/
 > ไม่มีการอัปโหลด ไม่มี cookie ไม่มี analytics และไม่มี backend ให้ข้อมูลไหลไปถึง
 
 อยากพิสูจน์? เปิด **DevTools → Network** แล้วลองใช้เครื่องมือต่าง ๆ — จะไม่เห็น request ที่ส่งข้อมูลของคุณออกไปเลย และตัวเว็บเองก็ไม่เรียกไฟล์จากภายนอกแม้แต่ชิ้นเดียว (ฟอนต์ self-host ทั้งหมด)
+
+**ค่าเดียวที่เว็บเก็บไว้ในเครื่องคุณ** คือธีมที่เลือก (สว่าง/มืด) ใน `localStorage` — ไม่มีข้อมูลอื่นถูกบันทึกเลย และค่านี้ไม่ถูกส่งออกไปไหน (ล้างทิ้งได้ตลอดด้วยการล้างข้อมูลเว็บไซต์ของเบราว์เซอร์)
 
 เว็บยัง**ติดตั้งเป็นแอป (PWA)** ได้ และเปิดใช้ต่อได้แม้ไม่มีเน็ต — Service Worker แคชเฉพาะไฟล์ของเว็บเอง ไม่มีข้อมูลใด ๆ วิ่งออกนอกเครื่องเช่นเดิม
 
