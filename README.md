@@ -4,7 +4,7 @@
 
 ### Everyday tools, ครบจบในกล่องเดียว
 
-**26 เครื่องมือใช้บ่อยสำหรับงานประจำวันและสาย dev** — ทำงานในเบราว์เซอร์ของคุณ 100%
+**42 เครื่องมือใช้บ่อย — งานประจำวัน สาย dev และสายไทย** — ทำงานในเบราว์เซอร์ของคุณ 100%
 ไม่มีเซิร์ฟเวอร์ · ไม่มีบัญชี · ไม่มี tracking · ข้อมูลไม่ออกจากเครื่อง
 
 [![Deploy](https://github.com/Poshzz/toolbox/actions/workflows/deploy.yml/badge.svg?branch=main)](https://github.com/Poshzz/toolbox/actions/workflows/deploy.yml)
@@ -14,6 +14,7 @@
 ![Vite](https://img.shields.io/badge/Vite-6-646cff?style=flat-square&logo=vite&logoColor=white)
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-v4-38bdf8?style=flat-square&logo=tailwindcss&logoColor=white)
 ![Privacy](https://img.shields.io/badge/privacy-100%25_client--side-65724b?style=flat-square)
+![PWA](https://img.shields.io/badge/PWA-offline_ready-65724b?style=flat-square)
 ![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)
 
 <br/>
@@ -36,21 +37,23 @@
 | ⌨️ **Keyboard-first** | กด `Ctrl` + `K` ค้นหาเครื่องมือได้จากทุกหน้า |
 | 🇹🇭 **ไทย–อังกฤษ** | UI สองภาษา ทั้งชื่อเครื่องมือและคำอธิบาย |
 | 🧩 **One-file tools** | เพิ่มเครื่องมือใหม่ = 1 ไฟล์ + 1 entry — ที่เหลืออัปเดตอัตโนมัติ |
+| 📲 **PWA / Offline** | ติดตั้งเป็นแอปได้ และใช้ต่อได้แม้ไม่มีเน็ต — Service Worker แคชเฉพาะไฟล์ของเว็บเอง |
 
-## 🧰 เครื่องมือ — 26 tools · 6 chapters
+## 🧰 เครื่องมือ — 42 tools · 7 chapters
 
 | # | Chapter | เครื่องมือ | |
 |:-:|:--|:--|:-:|
-| 01 | **Text** · ข้อความ | Word Counter · Case Converter · Text Cleaner · JSON Formatter · Lorem Ipsum | 5 |
+| 01 | **Text** · ข้อความ | Word Counter · Case Converter · Text Cleaner · JSON Formatter · Lorem Ipsum · Markdown Preview · Slug Generator | 7 |
 | 02 | **Convert** · แปลงค่า | Unit Converter · Base Converter · Color Converter · Timestamp Converter | 4 |
-| 03 | **Generate** · สุ่มและสร้าง | QR Generator · Password Generator · UUID Generator · Random Picker | 4 |
-| 04 | **Dev** · สำหรับนักพัฒนา | Base64 · Hash Generator · URL Tools · JWT Decoder · Diff Checker · Regex Tester | 6 |
-| 05 | **Finance** · การเงิน | Percentage Calculator · Interest Calculator · Bill Split · Loan Calculator | 4 |
-| 06 | **Image** · รูปภาพ | Image Resizer · Image Converter · Image Info | 3 |
-| | | **รวม** | **26** |
+| 03 | **Generate** · สุ่มและสร้าง | QR Generator · Password Generator · UUID Generator · Random Picker · Color Palette · Gradient Generator · Dice Roller | 7 |
+| 04 | **Dev** · สำหรับนักพัฒนา | Base64 · Hash Generator · URL Tools · JWT Decoder · Diff Checker · Regex Tester · Cron Parser · HTML Entity · JSON ↔ CSV · JSON ↔ YAML · Code Formatter | 11 |
+| 05 | **Finance** · การเงิน | Percentage Calculator · Interest Calculator · Bill Split · Loan Calculator · VAT Calculator | 5 |
+| 06 | **File & Image** · ไฟล์และรูปภาพ | Image Resizer · Image Converter · Image Info · Favicon Generator · PDF Merge & Split | 5 |
+| 07 | **Thai** · ไทย | Thai Date & Era · Thai Numbers · Thai ID Checker | 3 |
+| | | **รวม** | **42** |
 
 <details>
-<summary><b>▸ ดูรายละเอียดเครื่องมือทั้ง 26 ตัว — Full list</b></summary>
+<summary><b>▸ ดูรายละเอียดเครื่องมือทั้ง 42 ตัว — Full list</b></summary>
 
 <br/>
 
@@ -60,6 +63,8 @@
 - **Text Cleaner** — จัดระเบียบข้อความ เช่น ลบช่องว่างซ้ำ บรรทัดว่าง
 - **JSON Formatter** — จัดสวย/ย่อ/ตรวจสอบ JSON พร้อมบอกตำแหน่ง error
 - **Lorem Ipsum** — สร้างข้อความตัวอย่างสำหรับงานออกแบบ
+- **Markdown Preview** — เขียน Markdown พร้อมพรีวิวสด และก๊อป HTML ได้
+- **Slug Generator** — แปลงข้อความเป็น slug รองรับภาษาไทย
 
 **02 · Convert — แปลงค่า**
 - **Unit Converter** — แปลงหน่วยวัด ความยาว น้ำหนัก อุณหภูมิ ฯลฯ
@@ -72,6 +77,9 @@
 - **Password Generator** — สุ่มรหัสผ่านที่ปลอดภัยตามเงื่อนไข
 - **UUID Generator** — สร้าง UUID v4
 - **Random Picker** — สุ่มเลข เต๋า จับฉลาก พร้อมช่วงตัวเลขกว้าง ๆ
+- **Color Palette** — สร้างชุดสีกลมกลืน ล็อกสีที่ชอบได้
+- **Gradient Generator** — สร้าง CSS gradient พร้อมโค้ดไปใช้ได้เลย
+- **Dice Roller** — ทอยลูกเต๋า d4–d20 หลายลูก และโยนหัวก้อย
 
 **04 · Dev — สำหรับนักพัฒนา**
 - **Base64** — เข้ารหัส/ถอดรหัส Base64 (รองรับ Unicode)
@@ -80,17 +88,30 @@
 - **JWT Decoder** — ถอดและตรวจ JWT (HS256) ในเบราว์เซอร์
 - **Diff Checker** — เทียบข้อความทีละบรรทัด แบบ side-by-side
 - **Regex Tester** — ทดสอบ Regex พร้อมไฮไลต์ผลที่ตรง
+- **Cron Parser** — อธิบาย cron เป็นภาษาคน + เวลารันถัดไป 5 ครั้ง
+- **HTML Entity** — เข้ารหัส/ถอดรหัส HTML entities พร้อมตารางอ้างอิง
+- **JSON ↔ CSV** — แปลงสองทาง พร้อม BOM สำหรับ Excel
+- **JSON ↔ YAML** — แปลงสองทาง (subset มาตรฐานที่ใช้บ่อย)
+- **Code Formatter** — จัดสวย/ย่อ SQL · XML · CSS
 
 **05 · Finance — การเงิน**
 - **Percentage Calculator** — คำนวณเปอร์เซ็นต์ทุกรูปแบบที่ใช้บ่อย
 - **Interest Calculator** — ดอกเบี้ยเงินฝาก/เงินกู้ ทั้งแบบง่ายและทบต้น
 - **Bill Split** — หารบิลพร้อมทิป แสดงยอดต่อคน
 - **Loan Calculator** — ค่างวดผ่อนต่อเดือนจากยอดเงินและดอกเบี้ย
+- **VAT Calculator** — บวก/ถอด VAT พร้อมปัดสตางค์ถูกต้อง
 
-**06 · Image — รูปภาพ**
+**06 · File & Image — ไฟล์และรูปภาพ**
 - **Image Resizer** — ย่อ/ขยายรูปในเบราว์เซอร์ ไม่มีการอัปโหลด
 - **Image Converter** — แปลงไฟล์ PNG / JPEG / WebP
 - **Image Info** — ขนาด มิติ และข้อมูลไฟล์ของรูป
+- **Favicon Generator** — อัปรูปเดียวได้ favicon ครบขนาด + ไฟล์ .ico
+- **PDF Merge & Split** — รวม/แยกหน้า PDF ในเครื่อง ไม่มีการอัปโหลด
+
+**07 · Thai — ไทย**
+- **Thai Date & Era** — แปลง พ.ศ.↔ค.ศ. นับวัน อายุ วันที่ไทยแบบเต็ม
+- **Thai Numbers** — ตัวเลขเป็นคำอ่านไทย · เลขไทย · บาท/สตางค์
+- **Thai ID Checker** — ตรวจความถูกต้องเลขบัตรประชาชน 13 หลัก
 
 </details>
 
@@ -98,7 +119,7 @@
 
 | เลือกตามบท — Chapters | หน้าเครื่องมือ — Tool page |
 |:--:|:--:|
-| <img src=".github/assets/chapters.png" alt="หน้ารวมบทและเครื่องมือ" width="100%" /> | <img src=".github/assets/tool-page.png" alt="หน้า JSON Formatter" width="100%" /> |
+| <img src=".github/assets/chapters.png" alt="หน้ารวมบทและเครื่องมือ" width="100%" /> | <img src=".github/assets/tool-page.png" alt="หน้า Thai Date & Era" width="100%" /> |
 
 ## ⚙️ Tech Stack
 
@@ -107,8 +128,9 @@
 | **Core** | React 19 · TypeScript 5.7 · Vite 6 |
 | **Styling** | Tailwind CSS v4 + ธีมกาแฟที่ออกแบบเอง (glass + parallax engine เขียนสด) |
 | **Routing** | react-router-dom v7 — HashRouter ใช้ได้ทุก subpath ของ GitHub Pages |
-| **Libraries** | qrcode · lucide-react · Web Crypto API · Canvas API |
+| **Libraries** | qrcode · pdf-lib · lucide-react · Web Crypto API · Canvas API |
 | **Fonts** | Self-hosted ทั้งหมด — Fraunces · IBM Plex · Noto Serif Thai (SIL OFL) ไม่มี request ไป Google |
+| **PWA / Offline** | vite-plugin-pwa (Workbox) — ติดตั้งเป็นแอป และใช้งานได้แม้ออฟไลน์ |
 | **Backend** | ไม่มี. ศูนย์. Zero. 🎉 |
 | **Deploy** | GitHub Actions → GitHub Pages (อัตโนมัติทุก push ขึ้น `main`) |
 
@@ -121,10 +143,10 @@ src/
 ├── data/
 │   ├── tools.ts        # registry: CHAPTERS + TOOLS (จุดเดียวที่ต้องแก้เวลาเพิ่มเครื่องมือ)
 │   └── site.ts         # ชื่อเว็บ + repo URL
-├── lib/                # utils · md5 (เขียนเอง verify เทียบ node:crypto) · diff (LCS)
+├── lib/                # ตรรกะแยกไฟล์ 18 ไฟล์ — md5 · diff · thai-date · thai-numbers · vat · minimd · ico · pdf · cron · …
 └── pages/
     ├── Home.tsx
-    └── tools/          # 1 ไฟล์ต่อ 1 เครื่องมือ (lazy-load ทั้งหมด)
+    └── tools/          # 1 ไฟล์ต่อ 1 เครื่องมือ — 42 ไฟล์ (lazy-load ทั้งหมด)
 ```
 
 ## 🚀 เริ่มพัฒนา
@@ -153,7 +175,7 @@ npm run preview    # ลองของจริงจาก dist/
   name: 'My Tool',
   th: 'เครื่องมือของฉัน',
   desc: 'อธิบายสั้น ๆ ว่าเครื่องมือนี้ทำอะไร',
-  chapter: 'dev',            // text | convert | generate | dev | finance | image
+  chapter: 'dev',            // text | convert | generate | dev | finance | image | thai
   icon: Wand2,               // ไอคอนจาก lucide-react
   keywords: 'คำค้น ภาษาไทย english',
   component: lazy(() => import('../pages/tools/MyTool')),
@@ -166,6 +188,8 @@ npm run preview    # ลองของจริงจาก dist/
 > ไม่มีการอัปโหลด ไม่มี cookie ไม่มี analytics และไม่มี backend ให้ข้อมูลไหลไปถึง
 
 อยากพิสูจน์? เปิด **DevTools → Network** แล้วลองใช้เครื่องมือต่าง ๆ — จะไม่เห็น request ที่ส่งข้อมูลของคุณออกไปเลย และตัวเว็บเองก็ไม่เรียกไฟล์จากภายนอกแม้แต่ชิ้นเดียว (ฟอนต์ self-host ทั้งหมด)
+
+เว็บยัง**ติดตั้งเป็นแอป (PWA)** ได้ และเปิดใช้ต่อได้แม้ไม่มีเน็ต — Service Worker แคชเฉพาะไฟล์ของเว็บเอง ไม่มีข้อมูลใด ๆ วิ่งออกนอกเครื่องเช่นเดิม
 
 ## 🙏 เครดิต
 
