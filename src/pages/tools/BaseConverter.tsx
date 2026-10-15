@@ -18,11 +18,14 @@ const PATTERNS: Record<Base, RegExp> = {
 }
 
 function parse(value: string, base: Base): bigint {
-  const s = value.trim().replace(/[\s_]/g, '')
+  let s = value.trim().replace(/[\s_]/g, '')
   if (!s) throw new Error('empty')
-  if (!PATTERNS[base].test(s)) throw new Error(`ตัวอักษรไม่ตรงกับฐาน ${base}`)
+  const negative = s.startsWith('-')
+  if (negative) s = s.slice(1)
+  if (!s || !PATTERNS[base].test(s)) throw new Error(`ตัวอักษรไม่ตรงกับฐาน ${base}`)
   const prefix = base === '2' ? '0b' : base === '8' ? '0o' : base === '16' ? '0x' : ''
-  return BigInt(prefix + s)
+  const n = BigInt(prefix + s)
+  return negative ? -n : n
 }
 
 export default function BaseConverter() {

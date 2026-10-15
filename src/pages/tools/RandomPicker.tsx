@@ -5,15 +5,32 @@ import { cn } from '../../lib/utils'
 
 type Mode = 'number' | 'dice' | 'coin' | 'list'
 
+const TWO_32 = 4294967296
+const TWO_53 = 9007199254740992
+
+// สุ่มจำนวนเต็ม [0, max) แบบ uniform ด้วย rejection sampling
+// max > 2^32 ใช้ 53-bit จาก 2 words — กันกรณี limit เป็น 0 แล้วลูปค้าง
 function randInt(max: number) {
-  const arr = new Uint32Array(1)
-  const limit = Math.floor(4294967296 / max) * max
+  const m = Math.min(max, TWO_53)
+  if (!(m > 0)) return 0
+  if (m <= TWO_32) {
+    const arr = new Uint32Array(1)
+    const limit = Math.floor(TWO_32 / m) * m
+    let x = 0
+    do {
+      crypto.getRandomValues(arr)
+      x = arr[0]
+    } while (x >= limit)
+    return x % m
+  }
+  const arr = new Uint32Array(2)
+  const limit = Math.floor(TWO_53 / m) * m
   let x = 0
   do {
     crypto.getRandomValues(arr)
-    x = arr[0]
+    x = (arr[0] >>> 11) * TWO_32 + arr[1]
   } while (x >= limit)
-  return x % max
+  return x % m
 }
 
 const DICE_FACES = '⚀⚁⚂⚃⚄⚅'
@@ -25,6 +42,7 @@ export default function RandomPicker() {
   const [min, setMin] = useState(1)
   const [max, setMax] = useState(100)
   const [num, setNum] = useState<number | null>(null)
+  const [numError, setNumError] = useState('')
 
   // dice
   const [diceCount, setDiceCount] = useState(2)
@@ -47,6 +65,17 @@ export default function RandomPicker() {
   const rollNumber = () => {
     const lo = Math.min(min, max)
     const hi = Math.max(min, max)
+    if (!Number.isFinite(lo) || !Number.isFinite(hi)) {
+      setNum(null)
+      setNumError('ใส่ตัวเลขให้ถูกต้องก่อนนะ')
+      return
+    }
+    if (hi - lo + 1 > Number.MAX_SAFE_INTEGER) {
+      setNum(null)
+      setNumError('ช่วงเลขกว้างเกินไป — รองรับไม่เกิน 9,007,199,254,740,991')
+      return
+    }
+    setNumError('')
     setNum(lo + randInt(hi - lo + 1))
   }
 
@@ -96,6 +125,11 @@ export default function RandomPicker() {
           >
             {num ?? '?'}
           </div>
+          {numError && (
+            <p className="rounded-2xl border border-rust/40 bg-rust/10 px-4 py-2 text-xs text-rustdeep">
+              ✗ {numError}
+            </p>
+          )}
           <button type="button" className="btn btn-rust px-8 py-3 text-base" onClick={rollNumber}>
             สุ่มเลย
           </button>

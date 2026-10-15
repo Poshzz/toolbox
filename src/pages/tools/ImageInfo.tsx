@@ -9,13 +9,13 @@ export default function ImageInfo() {
   const [img, setImg] = useState<HTMLImageElement | null>(null)
   const [url, setUrl] = useState('')
   const [avg, setAvg] = useState('')
+  const [error, setError] = useState('')
 
   useEffect(() => {
-    if (!file) {
-      setImg(null)
-      setUrl('')
-      return
-    }
+    setImg(null)
+    setUrl('')
+    setError('')
+    if (!file) return
     const objectUrl = URL.createObjectURL(file)
     let cancelled = false
     const image = new Image()
@@ -24,6 +24,9 @@ export default function ImageInfo() {
         setImg(image)
         setUrl(objectUrl)
       }
+    }
+    image.onerror = () => {
+      if (!cancelled) setError('เปิดไฟล์นี้ไม่ได้ — รองรับเฉพาะไฟล์รูปภาพ')
     }
     image.src = objectUrl
     return () => {
@@ -62,6 +65,12 @@ export default function ImageInfo() {
   return (
     <div className="flex flex-col gap-5">
       <FileDrop accept="image/*" onFile={setFile} label="ลากรูปมาวาง หรือคลิกเพื่อดูข้อมูลรูป" />
+
+      {error && (
+        <p className="rounded-2xl border border-rust/40 bg-rust/10 px-4 py-2.5 text-xs text-rustdeep">
+          ✗ {error}
+        </p>
+      )}
 
       {!file && <p className="text-sm text-inksoft">ยังไม่มีรูป — เลือกไฟล์ก่อนนะ</p>}
 

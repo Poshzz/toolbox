@@ -14,7 +14,7 @@ export default function LoanCalc() {
   const result = useMemo(() => {
     if (!Number.isFinite(p) || !Number.isFinite(ratePct) || !Number.isFinite(y)) return null
     if (p <= 0 || y <= 0 || ratePct < 0) return null
-    const n = Math.round(y * 12)
+    const n = Math.max(1, Math.round(y * 12))
     const r = ratePct / 100 / 12
     const monthly = r === 0 ? p / n : (p * r * Math.pow(1 + r, n)) / (Math.pow(1 + r, n) - 1)
     const totalPay = monthly * n
