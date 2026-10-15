@@ -42,7 +42,8 @@ export default function Footer() {
           </p>
           <p>
             สไตล์ได้แรงบันดาลใจจาก “Coffee Cycle” โดย Delta Cafés (Bürocratik) — โปรเจกต์ส่วนตัว
-            ไม่มีความเกี่ยวข้องกับทั้งสองบริษัท · Built with Vite + React + Tailwind
+            ไม่มีความเกี่ยวข้องกับทั้งสองบริษัท · Built with Vite + React + Tailwind ·
+            ติดตั้งเป็นแอปได้ (ใช้แบบออฟไลน์)
           </p>
         </div>
       </div>
