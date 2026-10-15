@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, type CSSProperties } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { Download } from 'lucide-react'
 import { CopyField, Field, FileDrop, Segmented, Stat } from '../../components/ui'
 import { download, formatBytes } from '../../lib/utils'
@@ -42,14 +42,6 @@ const MANIFEST_SNIPPET = [
   '  ]',
   '}',
 ].join('\n')
-
-// ลายตารางหมากรุกไว้โชว์ความโปร่งใสของไอคอน
-const CHECKER: CSSProperties = {
-  backgroundImage:
-    'linear-gradient(45deg, rgba(34,27,18,0.13) 25%, transparent 25%, transparent 75%, rgba(34,27,18,0.13) 75%), linear-gradient(45deg, rgba(34,27,18,0.13) 25%, transparent 25%, transparent 75%, rgba(34,27,18,0.13) 75%)',
-  backgroundSize: '12px 12px',
-  backgroundPosition: '0 0, 6px 6px',
-}
 
 function fileNameFor(size: number) {
   return size === 180 ? 'apple-touch-icon.png' : `favicon-${size}.png`
@@ -289,7 +281,7 @@ export default function FaviconGenerator() {
             <div className="mt-4 flex flex-wrap items-end gap-x-5 gap-y-4">
               {SIZES.map((size) => (
                 <div key={size} className="flex flex-col items-center gap-2">
-                  <div className="rounded-xl border border-ink/10 p-1.5" style={CHECKER}>
+                  <div className="checkerboard rounded-xl border border-ink/10 p-1.5">
                     <canvas
                       ref={(el) => {
                         if (el) {

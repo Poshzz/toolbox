@@ -17,7 +17,7 @@ function esc(s: string): string {
 
 // ---- Tailwind classes (literal strings — Tailwind v4 สแกนจากไฟล์นี้) ----
 const P_CLASS = 'my-3 leading-relaxed first:mt-0 last:mb-0'
-const IC_CLASS = 'rounded-md bg-ink/10 px-1.5 py-0.5 font-mono text-[0.85em] text-rustdeep'
+const IC_CLASS = 'rounded-md bg-ink/10 px-1.5 py-0.5 font-mono text-[0.85em] text-rustdeep dark:text-gold'
 const H_CLASS = 'mt-6 mb-2 font-display font-semibold tracking-tight text-ink first:mt-0'
 const H_SIZE: Record<number, string> = {
   1: 'text-3xl',
@@ -33,7 +33,7 @@ const PRE_CODE_CLASS = 'font-mono text-[13px] leading-relaxed'
 const UL_CLASS = 'my-3 list-disc space-y-1 pl-6 marker:text-rust'
 const OL_CLASS = 'my-3 list-decimal space-y-1 pl-6 marker:text-rust'
 const LI_CLASS = 'leading-relaxed'
-const BQ_CLASS = 'my-4 border-l-2 border-rust/60 bg-white/30 py-1 pl-4 text-inksoft'
+const BQ_CLASS = 'my-4 border-l-2 border-rust/60 bg-white/30 py-1 pl-4 text-inksoft dark:bg-white/5'
 const A_CLASS = 'text-rust underline underline-offset-2 hover:text-rustdeep'
 
 const CODE_SLOT = /\u0000(\d+)\u0000/g

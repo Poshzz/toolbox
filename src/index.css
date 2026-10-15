@@ -267,6 +267,21 @@ body {
   opacity: 0.04;
 }
 
+/* ---- ลายตารางโปร่งใส (checkerboard) สำหรับพรีวิวรูป/favicon ---- */
+.checkerboard {
+  background-image:
+    linear-gradient(45deg, rgba(34, 27, 18, 0.13) 25%, transparent 25%, transparent 75%, rgba(34, 27, 18, 0.13) 75%),
+    linear-gradient(45deg, rgba(34, 27, 18, 0.13) 25%, transparent 25%, transparent 75%, rgba(34, 27, 18, 0.13) 75%);
+  background-size: 12px 12px;
+  background-position: 0 0, 6px 6px;
+}
+
+.dark .checkerboard {
+  background-image:
+    linear-gradient(45deg, rgba(239, 228, 205, 0.14) 25%, transparent 25%, transparent 75%, rgba(239, 228, 205, 0.14) 75%),
+    linear-gradient(45deg, rgba(239, 228, 205, 0.14) 25%, transparent 25%, transparent 75%, rgba(239, 228, 205, 0.14) 75%);
+}
+
 /* ซีนศิลป์ใน Background ใช้สีแบบ attribute — เขียนทับด้วย selector ได้ตรง ๆ
    (โหมดมืด: ดำ → ครีม / สีอุ่นเพิ่มความสว่างให้เด่นบนพื้นเข้ม) */
 .dark [stroke='#221b12'] {
